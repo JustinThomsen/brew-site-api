@@ -18,11 +18,9 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
     - name: Build and push Docker images
-      env:
-        PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+
       uses: docker/build-push-action@v1.1.0
       with:
-        username: USERNAME
-        password: PASSWORD
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
         repository: oldeesrock\magic-bean-brewing:brew-api
