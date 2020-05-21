@@ -12,7 +12,7 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
 
-EXPOSE 3001
+EXPOSE 8081
 
 # add app
 COPY . .
